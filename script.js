@@ -27,11 +27,13 @@ function typeLoop() {
   if (!isDeleting && j <= phrases[i].length) {
     currentPhrase.push(phrases[i][j]);
     j++;
+    setTimeout(typeLoop, 100);
   }
 
   if (isDeleting && j > 0) {
     currentPhrase.pop();
     j--;
+     setTimeout(typeLoop, 50);
   }
 
   if (j === phrases[i].length) {
@@ -43,9 +45,9 @@ function typeLoop() {
   if (isDeleting && j === 0) {
     isDeleting = false;
     i = (i + 1) % phrases.length;
+    setTimeout(typeLoop, 300);
   }
 
-  setTimeout(typeLoop, isDeleting ? 50 : 100);
 }
 
 typeLoop();
