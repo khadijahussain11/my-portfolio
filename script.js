@@ -47,6 +47,7 @@ function typeLoop() {
     i = (i + 1) % phrases.length;
     setTimeout(typeLoop, 300);
   }
+  setTimeout(typeLoop, isDeleting ? 50 : 100);
 
 }
 
