@@ -17,38 +17,38 @@ const phrases = [
   "Graphic Designer"
 ];
 
-let i = 0, j = 0;
-let currentPhrase = [], isDeleting = false;
+let i = 0;
+let j = 0;
+let currentPhrase = [];
+let isDeleting = false;
 const typeTarget = document.querySelector(".typewriter");
 
 function typeLoop() {
   typeTarget.innerHTML = currentPhrase.join('');
 
-  if (!isDeleting && j <= phrases[i].length) {
+  if (!isDeleting && j < phrases[i].length) {
     currentPhrase.push(phrases[i][j]);
     j++;
-    setTimeout(typeLoop, 100);
-  }
-
-  if (isDeleting && j > 0) {
+    setTimeout(typeLoop, 150); 
+  } 
+  else if (isDeleting && j > 0) {
     currentPhrase.pop();
     j--;
-     setTimeout(typeLoop, 50);
-  }
-
-  if (j === phrases[i].length) {
-    isDeleting = true;
-    setTimeout(typeLoop, 1500);
-    return;
-  }
-
-  if (isDeleting && j === 0) {
+    setTimeout(typeLoop, 100); 
+  } 
+  else if (!isDeleting && j === phrases[i].length) {
+    // Phrase completed
+    setTimeout(() => {
+      isDeleting = true;
+      typeLoop();
+    }, 1500); // pause before deleting
+  } 
+  else if (isDeleting && j === 0) {
+    // Phrase deleted, move to next
     isDeleting = false;
     i = (i + 1) % phrases.length;
-    setTimeout(typeLoop, 300);
+    setTimeout(typeLoop, 400); 
   }
-  setTimeout(typeLoop, isDeleting ? 50 : 100);
-
 }
 
 typeLoop();
