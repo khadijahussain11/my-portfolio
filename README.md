@@ -2,7 +2,7 @@
 
 This is the official personal portfolio website of **Khadija Hussain**, built to showcase projects, skills, and creative work in web development, app development, and graphic/video design.
 
-🌐 Live Site: [Visit Portfolio](https://your-github-username.github.io/my-portfolio)
+🌐 Live Site: [Visit Portfolio](https://khadijahussain11.github.io/my-portfolio/)
 
 ---
 
